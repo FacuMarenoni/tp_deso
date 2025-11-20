@@ -6,15 +6,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version> <relativePath/>
+        <version>3.5.8</version> <relativePath/>
     </parent>
     
-    <groupId>cu09</groupId>
+    <groupId>tp_deso</groupId>
     <artifactId>hotel-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>hotel-api</name>
-    <description>API para el TP de Gestión Hotelera</description>
-    
+
     <properties>
         <java.version>21</java.version>
     </properties>

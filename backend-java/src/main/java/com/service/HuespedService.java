@@ -43,11 +43,11 @@ public class HuespedService {
     public List<Huesped> buscarHuespedes(String nombre, String apellido, TipoDoc tipoDocumento,
             String numeroDocumento) {
         if (nombre != null)
-            nombre = "%" + nombre.toLowerCase() + "%";
+            nombre = nombre.toLowerCase() + "%";
         if (apellido != null)
-            apellido = "%" + apellido.toLowerCase() + "%";
+            apellido = apellido.toLowerCase() + "%";
         if (numeroDocumento != null)
-            numeroDocumento = "%" + numeroDocumento + "%";
+            numeroDocumento = numeroDocumento + "%";
 
         return huespedRepository.buscarHuespedes(nombre, apellido, tipoDocumento, numeroDocumento);
     }

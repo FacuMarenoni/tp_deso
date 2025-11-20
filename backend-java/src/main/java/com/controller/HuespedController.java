@@ -21,7 +21,7 @@ public class HuespedController {
 
     @PostMapping
     // Si la validación falla, no entra al método, sino que salta al
-    // GlobalExceptionHandler.
+    // ManejadorGlobalExcepciones.
     public ResponseEntity<?> darAltaHuesped(@Valid @RequestBody Huesped huesped,
             @RequestParam(required = false) boolean force) {
         try {

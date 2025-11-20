@@ -256,6 +256,20 @@ if (btnBuscarAccion) {
     btnBuscarAccion.addEventListener('click', buscarHuespedes);
 }
 
+// Listener para buscar con Enter en los campos de búsqueda
+const formBusqueda = document.getElementById('form-busqueda');
+if (formBusqueda) {
+    const inputs = formBusqueda.querySelectorAll('input, select');
+    inputs.forEach(input => {
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                buscarHuespedes();
+            }
+        });
+    });
+}
+
 async function buscarHuespedes() {
     const tbody = document.getElementById('tabla-huespedes-body');
     tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Buscando...</td></tr>';
