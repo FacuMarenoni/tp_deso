@@ -36,11 +36,15 @@ public class HuespedService {
         return huespedRepository.save(huesped);
     }
 
-    public List<Huesped> obtenerTodos() {
-        return huespedRepository.findAll();
+    public List<com.dto.HuespedDTO> obtenerTodos() {
+        List<Huesped> huespedes = huespedRepository.findAll();
+        return huespedes.stream()
+                .map(h -> new com.dto.HuespedDTO(h.getIdHuesped(), h.getNombres(), h.getApellido(),
+                        h.getTipoDocumento(), h.getNumeroDocumento()))
+                .collect(java.util.stream.Collectors.toList());
     }
 
-    public List<Huesped> buscarHuespedes(String nombre, String apellido, TipoDoc tipoDocumento,
+    public List<com.dto.HuespedDTO> buscarHuespedes(String nombre, String apellido, TipoDoc tipoDocumento,
             String numeroDocumento) {
         if (nombre != null)
             nombre = nombre.toLowerCase() + "%";
@@ -49,6 +53,11 @@ public class HuespedService {
         if (numeroDocumento != null)
             numeroDocumento = numeroDocumento + "%";
 
-        return huespedRepository.buscarHuespedes(nombre, apellido, tipoDocumento, numeroDocumento);
+        List<Huesped> huespedes = huespedRepository.buscarHuespedes(nombre, apellido, tipoDocumento, numeroDocumento);
+        return huespedes.stream()
+                .map(h -> new com.dto.HuespedDTO(h.getIdHuesped(), h.getNombres(), h.getApellido(),
+                        h.getTipoDocumento(),
+                        h.getNumeroDocumento()))
+                .collect(java.util.stream.Collectors.toList());
     }
 }

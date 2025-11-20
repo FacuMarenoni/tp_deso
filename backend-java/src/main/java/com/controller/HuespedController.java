@@ -33,17 +33,18 @@ public class HuespedController {
     }
 
     @GetMapping
-    public List<Huesped> listarHuespedes() {
+    public List<com.dto.HuespedDTO> listarHuespedesCapeados() {
         return huespedService.obtenerTodos();
     }
 
     @GetMapping("/buscar")
-    public ResponseEntity<List<Huesped>> buscarHuespedes(
+    public ResponseEntity<List<com.dto.HuespedDTO>> buscarHuespedes(
             @RequestParam(required = false) String nombre,
             @RequestParam(required = false) String apellido,
             @RequestParam(required = false) com.model.TipoDoc tipoDocumento,
             @RequestParam(required = false) String numeroDocumento) {
-        List<Huesped> resultados = huespedService.buscarHuespedes(nombre, apellido, tipoDocumento, numeroDocumento);
+        List<com.dto.HuespedDTO> resultados = huespedService.buscarHuespedes(nombre, apellido, tipoDocumento,
+                numeroDocumento);
         return new ResponseEntity<>(resultados, HttpStatus.OK);
     }
 }
